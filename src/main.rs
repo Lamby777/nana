@@ -13,15 +13,13 @@ fn main() {
 }
 
 struct MyApp {
-	name: String,
-	age: u32,
+	file:	String,
 }
 
 impl Default for MyApp {
 	fn default() -> Self {
 		Self {
-			name: "Arthur".to_owned(),
-			age: 42,
+			file: "bruh.txt".to_owned()
 		}
 	}
 }
@@ -29,11 +27,11 @@ impl Default for MyApp {
 impl eframe::App for MyApp {
 	fn update(&mut self, ctx: &egui::Context, _frame: &mut eframe::Frame) {
 		egui::CentralPanel::default().show(ctx, |ui| {
-			ui.heading(format!("Editing File \"{}\"", self.name));
+			ui.heading(format!("Editing File \"{}\"", self.file));
 			
 			ui.horizontal(|ui| {
 				ui.label("Your name: ");
-				ui.text_edit_singleline(&mut self.name);
+				ui.text_edit_singleline(&mut self.file);
 			});
 		});
 	}
